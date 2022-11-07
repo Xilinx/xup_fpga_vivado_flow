@@ -1,0 +1,14 @@
+docs_list_title: competition_infor_sidebar
+docs:
+  
+- title: 竞赛介绍
+  url: introduction.html
+
+- title: 竞赛规则
+  url: rules.html
+
+- title: 竞赛题目
+  url: problems.html
+
+- title: 报名提交
+  url: upload.html

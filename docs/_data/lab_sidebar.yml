@@ -1,0 +1,26 @@
+docs_list_title: appendix_sidebar
+docs:
+  
+- title: Lab 1
+# Vivado Design Flow
+  url: lab1.html
+
+- title: Lab 2
+# Synthesizing a RTL Design
+  url: lab2.html
+
+- title: Lab 3
+# Implementing the Design
+  url: lab3.html
+
+- title: Lab 4
+# Using the IP Catalog and IP Integrator
+  url: lab4.html
+
+- title: Lab 5
+# Xilinx Design Constraints
+  url: lab5.html
+
+- title: Lab 6
+# Hardware Debugging
+  url: lab6.html

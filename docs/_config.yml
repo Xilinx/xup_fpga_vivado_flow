@@ -1,0 +1,7 @@
+title: FPGA Design with Vivado
+description:  FPGA Design with Vivado
+show_downloads: true
+google_analytics: 
+theme: jekyll-theme-dinky
+include: [ 'contributing.md']
+
