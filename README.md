@@ -72,7 +72,7 @@ For the Boolean board, when creating Vivado projects, select the **xc7s50csga342
 ## Labs Overview:
 
 ### Lab 1
-This lab guides you through the process of using the Vivado IDE to create a simple HDL design.  You will simulate, synthesize, and implement the design with default settings. You will generate the bitstream and download it to the boardto verify the design functionality.
+This lab guides you through the process of using the Vivado IDE to create a simple HDL design.  You will simulate, synthesize, and implement the design with default settings. You will generate the bitstream and download it to the board to verify the design functionality.
 
 <p align="center">
 <img src ="./images/lab1/Fig1.png"/>
@@ -104,13 +104,13 @@ You will use the uart_led design that was introduced in the previous labs. You w
 
 ## Contributing
 
-We welcome contributions, please review the [contributing](CONTRIBUTING.md) guidelines to contribute.
+We welcome contributions, please review the [contributing](contributing.md) guidelines to contribute.
 
 ## Licenses
 
 Copyright&copy; 2022, Advanced Micro Devices, Inc.
 
-[SPDX-License-Identifier: BSD-3-Clause](LICENSE)
+[SPDX-License-Identifier: MIT](LICENSE)
 
 
 ### Binary Files License
