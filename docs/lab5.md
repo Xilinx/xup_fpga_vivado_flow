@@ -31,14 +31,16 @@ Boolean board will be using the on-board UART port to implement such function, w
 
 ---
 
-![images](./images/lab5/Fig1.png)
-
+<div align = "center">
+<img src ="images/lab5/Fig1.png">
+</div>
 <p align = "center">
 <i>The Complete Design on PL</i>
 </p>
 
-![images](images/lab5/Fig2.png)
-
+<div align = "center">
+<img src ="images/lab5/Fig2.png">
+</div>
 <p align = "center">
 <i>The Complete System on PYNQ-Z2</i>
 </p>
@@ -96,14 +98,17 @@ The absolute path for the source code should only contain ascii characters. Deep
 
    The device view window and package pins tab will be displayed.
 
-   [![images](./images/lab5/Fig4.png)](./images/lab5/Fig4.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig4.png">
+   </div>
 
    <p align = "center">
    <i>I/O Planning project’s default windows and views (PYNQ-Z2)</i>
    </p>
 
-   ![images](./images/lab5/boolean_io.png)
-
+   <div align = "center">
+   <img src ="images/lab5/boolean_io.png">
+   </div>
    <p align = "center">
    <i>I/O Planning project’s default windows and views (Boolean)</i>
    </p>
@@ -118,8 +123,9 @@ The absolute path for the source code should only contain ascii characters. Deep
 
 2. Type **clk_pin** in the *Name* field, select **Input** for the *Direction* and select **LVCMOS33** as the *I/O Standard*, and click **OK**.
 
-   ![images](./images/lab5/Fig5.png)
-
+   <div align = "center">
+   <img src ="images/lab5/Fig5.png">
+   </div>
    <p align = "center">
    <i>Creating I/O Port for clk_pin input</i>
    </p>
@@ -134,7 +140,9 @@ The absolute path for the source code should only contain ascii characters. Deep
 
 Hover the mouse over **H16**(PYNQ-Z2) or **F14**(Boolean) in the Device view window.
 
-[![images](./images/lab5/Fig6.png)](./images/lab5/Fig6.png)
+<div align = "center">
+<img src ="images/lab5/Fig6.png">
+</div>
 
 <p align = "center">
 <i>Locating H16 pin in the Device view(PYNQ-Z2)</i>
@@ -150,7 +158,9 @@ Hover the mouse over **H16**(PYNQ-Z2) or **F14**(Boolean) in the Device view win
 
 4. Select **Edit > Find** or Ctrl-F to open the Find form. Select **Package Pins** in the *Find* drop-down field, type **D20**(PYNQ-Z2) or **J5**(Boolean) in the match criteria field, and click on **OK**.
 
-   [![images](./images/lab5/Fig7.png)](./images/lab5/Fig7.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig7.png">
+   </div>
 
    <p align = "center">
    <i>Finding a package pin(PYNQ-Z2)</i>
@@ -168,7 +178,9 @@ Hover the mouse over **H16**(PYNQ-Z2) or **F14**(Boolean) in the Device view win
 
 1. In the I/O Ports tab, click on the create I/O port button on the left vertical ribbon.
 
-   [![images](./images/lab5/Fig8.png)](./images/lab5/Fig8.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig8.png">
+   </div>
    <p align = "center">
    <i>Create I/O Ports button</i>
    </p>
@@ -177,7 +189,9 @@ Hover the mouse over **H16**(PYNQ-Z2) or **F14**(Boolean) in the Device view win
 
 2. Type **led_pins** in the *Name* field, select *Output* direction, click on the check-box of **Create bus**, set the msb to **7**, and select **LVCMOS33** I/O standard and click **OK**.
 
-   ![images](./images/lab5/Fig9.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig9.png">
+   </div>
 
    <p align = "center">
    <i>Creating I/O ports for the led_pins output</i>
@@ -188,33 +202,33 @@ Hover the mouse over **H16**(PYNQ-Z2) or **F14**(Boolean) in the Device view win
 
 3. Type the following commands in the console to assign the pin locations.
 
-**For PYNQ-Z2:**
+   **For PYNQ-Z2:**
 
-```tcl
-# four on-board LEDs
-set_property -dict { PACKAGE_PIN R14 IOSTANDARD LVCMOS33 } [get_ports { led_pins[0] }];
-set_property -dict { PACKAGE_PIN P14 IOSTANDARD LVCMOS33 } [get_ports { led_pins[1] }];
-set_property -dict { PACKAGE_PIN N16 IOSTANDARD LVCMOS33 } [get_ports { led_pins[2] }];
-set_property -dict { PACKAGE_PIN M14 IOSTANDARD LVCMOS33 } [get_ports { led_pins[3] }];
-# four LEDs on the RPi extension board
-set_property -dict { PACKAGE_PIN B20 IOSTANDARD LVCMOS33 } [get_ports { led_pins[4] }];
-set_property -dict { PACKAGE_PIN W8 IOSTANDARD LVCMOS33 } [get_ports { led_pins[5] }];
-set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS33 } [get_ports { led_pins[6] }];
-set_property -dict { PACKAGE_PIN W6 IOSTANDARD LVCMOS33 } [get_ports { led_pins[7] }];
-```
+   ```tcl
+   # four on-board LEDs
+   set_property -dict { PACKAGE_PIN R14 IOSTANDARD LVCMOS33 } [get_ports { led_pins[0] }];
+   set_property -dict { PACKAGE_PIN P14 IOSTANDARD LVCMOS33 } [get_ports { led_pins[1] }];
+   set_property -dict { PACKAGE_PIN N16 IOSTANDARD LVCMOS33 } [get_ports { led_pins[2] }];
+   set_property -dict { PACKAGE_PIN M14 IOSTANDARD LVCMOS33 } [get_ports { led_pins[3] }];
+   # four LEDs on the RPi extension board
+   set_property -dict { PACKAGE_PIN B20 IOSTANDARD LVCMOS33 } [get_ports { led_pins[4] }];
+   set_property -dict { PACKAGE_PIN W8 IOSTANDARD LVCMOS33 } [get_ports { led_pins[5] }];
+   set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS33 } [get_ports { led_pins[6] }];
+   set_property -dict { PACKAGE_PIN W6 IOSTANDARD LVCMOS33 } [get_ports { led_pins[7] }];
+   ```
 
-**For Boolean:**
+   **For Boolean:**
 
-```tcl
-set_property -dict {PACKAGE_PIN G1 IOSTANDARD LVCMOS33} [get_ports {led_pins[0]}]
-set_property -dict {PACKAGE_PIN G2 IOSTANDARD LVCMOS33} [get_ports {led_pins[1]}]
-set_property -dict {PACKAGE_PIN F1 IOSTANDARD LVCMOS33} [get_ports {led_pins[2]}]
-set_property -dict {PACKAGE_PIN F2 IOSTANDARD LVCMOS33} [get_ports {led_pins[3]}]
-set_property -dict {PACKAGE_PIN E1 IOSTANDARD LVCMOS33} [get_ports {led_pins[4]}]
-set_property -dict {PACKAGE_PIN E2 IOSTANDARD LVCMOS33} [get_ports {led_pins[5]}]
-set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports {led_pins[6]}]
-set_property -dict {PACKAGE_PIN E5 IOSTANDARD LVCMOS33} [get_ports {led_pins[7]}]
-```
+   ```tcl
+   set_property -dict {PACKAGE_PIN G1 IOSTANDARD LVCMOS33} [get_ports {led_pins[0]}]
+   set_property -dict {PACKAGE_PIN G2 IOSTANDARD LVCMOS33} [get_ports {led_pins[1]}]
+   set_property -dict {PACKAGE_PIN F1 IOSTANDARD LVCMOS33} [get_ports {led_pins[2]}]
+   set_property -dict {PACKAGE_PIN F2 IOSTANDARD LVCMOS33} [get_ports {led_pins[3]}]
+   set_property -dict {PACKAGE_PIN E1 IOSTANDARD LVCMOS33} [get_ports {led_pins[4]}]
+   set_property -dict {PACKAGE_PIN E2 IOSTANDARD LVCMOS33} [get_ports {led_pins[5]}]
+   set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports {led_pins[6]}]
+   set_property -dict {PACKAGE_PIN E5 IOSTANDARD LVCMOS33} [get_ports {led_pins[7]}]
+   ```
 
 
 
@@ -224,7 +238,9 @@ set_property -dict {PACKAGE_PIN E5 IOSTANDARD LVCMOS33} [get_ports {led_pins[7]}
 
 5. Enter **uart_led_{BOARDS}** in the *File name* field, and click **OK**.
 
-![images](./images/lab5/Fig10.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig10.png">
+   </div>
 
    <p align = "center">
    <i>Saving constraints</i>
@@ -233,7 +249,9 @@ set_property -dict {PACKAGE_PIN E5 IOSTANDARD LVCMOS33} [get_ports {led_pins[7]}
 
    The uart_led_{BOARDS}.xdc file will be created and added to the Sources tab.
 
-   ![images](./images/lab5/Fig11.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig11.png">
+   </div>
 
    <p align = "center">
    <i>The uart_led.xdc file added to the source tree</i>
@@ -247,20 +265,24 @@ set_property -dict {PACKAGE_PIN E5 IOSTANDARD LVCMOS33} [get_ports {led_pins[7]}
 
 5. Click on **Migrate to RTL**.
 
-The *Migrate to RTL* form will be displayed with Top RTL file field showing **{TUTORIAL}**/io_1.v entry.
+   The *Migrate to RTL* form will be displayed with Top RTL file field showing **{TUTORIAL}**/io_1.v entry.
 
-1. Change *io_1.v* to **uart_led.v(for PYNQ-Z2)** or **uart_top.v(for Boolean)**, and click **OK**
+6. Change *io_1.v* to **uart_led.v(for PYNQ-Z2)** or **uart_top.v(for Boolean)**, and click **OK**
 
-![images](./images/lab5/Fig12.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig12.png">
+   </div>
 
-<p align = "center">
-<i>Assigning top-level file name(for Boolean)</i>
-</p>
+   <p align = "center">
+   <i>Assigning top-level file name(for Boolean)</i>
+   </p>
 
 
-1. Select the **Hierarchy** tab and notice that the *uart_top.v* file has been added to the project with top-level module name as **ios**. If you double-click the entry, you will see the module name with the ports listing.
+7. Select the **Hierarchy** tab and notice that the *uart_top.v* file has been added to the project with top-level module name as **ios**. If you double-click the entry, you will see the module name with the ports listing.
 
-   ![images](./images/lab5/Fig13.png)
+<div align = "center">
+<img src ="images/lab5/Fig13.png">
+</div>
 
 <p align = "center">
 <i>The top-level module content and the design hierarchy after migrating to RTL</i>
@@ -275,33 +297,35 @@ The *Migrate to RTL* form will be displayed with Top RTL file field showing **{T
 5. Click **Finish**.
 6. Using Windows Explorer, browse to **{SOURCES}\\{BOARD}\lab5** and open *uart_top.txt* using any text editor. Copy the content of it and paste it in *uart_top.v* or *uart_led.v* in the Vivado project.
 
----
+   ---
 
-**For PYNQ-Z2, there are two extra steps to do**
+   **For PYNQ-Z2, there are two extra steps to do**
 
-1. In the Tcl Shell window enter the following command to change to the lab directory and hit the Enter key.
+   1. In the Tcl Shell window enter the following command to change to the lab directory and hit the Enter key.
 
-   ```shell
-   cd {TUTORIAL}/lab5
-   ```
+      ```shell
+      cd {TUTORIAL}/lab5
+      ```
 
-2. Generate the PS design by executing the provided Tcl script.
+   2. Generate the PS design by executing the provided Tcl script.
 
-   ```tcl
-   source ps_init.tcl
-   ```
+      ```tcl
+      source ps_init.tcl
+      ```
 
-   This script will create a block design called *system*, instantiate ZYNQ PS with one GPIO channel (GPIO14) and one EMIO channel. It will then create a **top-level wrapper** file called *system_wrapper.v* which will instantiate the *system.bd* (the block design). You can check the contents of the tcl files to confirm the commands that are being run.
+      This script will create a block design called *system*, instantiate ZYNQ PS with one GPIO channel (GPIO14) and one EMIO channel. It will then create a **top-level wrapper** file called *system_wrapper.v* which will instantiate the *system.bd* (the block design). You can check the contents of the tcl files to confirm the commands that are being run.
 
-   **NOTICE**: Please make sure that your top-level module is *system_wrapper* which is generated by the tcl script. If the auto-execute script fails, please manually set the system_wrapper as top. Right click on the **system_wrapper** entry, and click *set as Top*.
+      **NOTICE**: Please make sure that your top-level module is *system_wrapper* which is generated by the tcl script. If the auto-execute script fails, please manually set the system_wrapper as top. Right click on the **system_wrapper** entry, and click *set as Top*.
 
----
+   ---
 
 7. Double-click on the **uart_top**(Boolean) or **uart_led**(PYNQ-Z2) entry to view its content.
 
 Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined to be 115200 and 125 MHz(PYNQ-Z2) or 100 MHz (Boolean) respectively.
 
-![images](./images/lab5/Fig14.png)
+<div align = "center">
+<img src ="images/lab5/Fig14.png">
+</div>
 
 <p align = "center">
 <i>CLOCK_RATE parameter of uart_led</i>
@@ -324,7 +348,9 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
 
 5. Specify the frequency of the object *clk_pin* to be **125 MHz**(PYNQ-Z2) or **100MHz**(Boolean), notice the Period, Rise At and Fall At are automatically populated. Also notice the Tcl command that can be previewed at the bottom of the wizard. Click **Next** to proceed.
 
-   ![images](./images/lab5/Fig15.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig15.png">
+   </div>
 
    <p align = "center">
    <i>Constraints Wizard clk_pin parameters and Tcl command</i>
@@ -343,11 +369,13 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
    - Notice that under the Tcl Command Preview tab, 4 Tcl commands have been generated.
    - Click **Next**.
 
-   ![images](./images/lab5/Fig16.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig16.png">
+   </div>
 
- <p align = "center">
-<i>Specifying Input Delays for btn_pin and rst_pin(PYNQ-Z2)</i>
-</p>
+   <p align = "center">
+   <i>Specifying Input Delays for btn_pin and rst_pin(PYNQ-Z2)</i>
+   </p>
 
 
 10. Enter the *tsu* and *thd* as **0 ns** and enter the *trce_dly_max* and *trce_dly_min* as **-2.20 ns.** Click **Apply** and then click **Next**.
@@ -358,19 +386,21 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
 
 13. **Check** *On Finish –* **View Timing Constraints** and click **Finish** to close the wizard. The option will open the *Timing Constraints Editor* to show you the generated timing constraint.
 
-    [![images](./images/lab5/Fig17.png)](./images/lab5/Fig17.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig17.png">
+   </div>
 
-
-
-    <p align = "center">
-    <i>Selecting View Timing constraints</i>
-    </p>
+   <p align = "center">
+   <i>Selecting View Timing constraints</i>
+   </p>
 
 14. Note the wizard generated the *clk_pin* constraint for a **8** ns period (or 125 MHz)(PYNQ-Z2) or **10** ns period (or 100MHz)(Boolean). Notice in the *All Constraints* window, 7/9 constraints will be created.
 
     There is no need to click Apply since the constraints have already been applied in the Constraints Wizard.
 
-    [![images](./images/lab5/Fig18.png)](./images/lab5/Fig18.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig18.png">
+   </div>
 
     <p align = "center">
     <i>The constraints added after using the Constraints Wizard</i>
@@ -384,7 +414,9 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
 
 2. In the **Options** tab, select *min_max* from the *Path delay type* drop-down list.
 
-   [![images](./images/lab5/Fig19.png)](./images/lab5/Fig19.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig19.png">
+   </div>
 
    <p align = "center">
    <i>Performing timing analysis</i>
@@ -394,7 +426,9 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
 
    The Timing Results view opens at the bottom of the Vivado IDE.
 
-   [![images](./images/lab5/Fig20.png)](./images/lab5/Fig20.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig20.png">
+   </div>
 
    <p align = "center">
    <i>Timing summary</i>
@@ -406,7 +440,9 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
 
 4. Click on the link next to *Worst Hold Slack* (WHS) to see the list of failing paths.
 
-   [![images](./images/lab5/Fig21.png)](./images/lab5/Fig21.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig21.png">
+   </div>
 
    <p align = "center">
    <i>The list of paths showing hold violations</i>
@@ -414,7 +450,9 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
 
 5. Double-click on the *Path 11* to see the actual path detail.
 
-   [![images](./images/lab5/Fig22.png)](./images/lab5/Fig22.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig22.png">
+   </div>
 
    <p align = "center">
    <i>Failing hold path</i>
@@ -423,7 +461,9 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
 
 6. Select *Path 11*, right-click and select **Schematic**.
 
-   [![images](./images/lab5/Fig23.png)](./images/lab5/Fig23.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig23.png">
+   </div>
 
    <p align = "center">
    <i>The schematic of the failing path</i>
@@ -454,7 +494,9 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
 
    Note that failing timing paths are indicated in red.
 
-   [![images](./images/lab5/Fig24.png)](./images/lab5/Fig24.png)
+   <div align = "center">
+   <img src ="images/lab5/Fig24.png">
+   </div>
 
    <p align = "center">
    <i>Failing setup paths</i>
@@ -504,11 +546,13 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
    The Hardware Manager window will open indicating “unconnected” status.
 3. Click on the **Open target** link, then **Auto Connect** from the dropdown menu.
 
-  ![fig1](images/lab5/fig15-16479350107761.png)
 
-<p align = "center">
-<i>Opening new hardware target</i>
-</p>
+   <div align = "center">
+   <img src ="images/lab5/fig15-16479350107761.png">
+   </div>
+   <p align = "center">
+   <i>Opening new hardware target</i>
+   </p>
 
 
 4. The Hardware Session status changes from Unconnected to the server name and the device is highlighted. Also notice that the Status indicates that it is not programmed.
@@ -523,32 +567,32 @@ Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined 
 3. Select the *Open Hardware Manager* option and click **OK**.
    The Hardware Manager window will open indicating “unconnected” status.
 
-  ![fig1](images/lab5/fig15-16479350107761.png)
+   <div align = "center">
+   <img src ="images/lab5/fig15-16479350107761.png">
+   </div>
 
-<p align = "center">
-<i>Opening new hardware target</i>
-</p>
+   <p align = "center">
+   <i>Opening new hardware target</i>
+   </p>
 
 4. The Hardware Session status changes from Unconnected to the server name and the device is highlighted. The status may indicate that the device is programmed, **ignore the status**.
 5. Select the device in the Hardware Device Properties, and verify that the **system_wrapper.bit**  is selected as the programming file in the General tab.
 
----
+6. Make sure that the Micro-USB cable is connected to the JTAG PROG connector.
 
-1. Make sure that the Micro-USB cable is connected to the JTAG PROG connector.
+7. Turn ON the power.
 
-2. Turn ON the power.
-
-3. Select the *Open Hardware Manager* option.
+8. Select the *Open Hardware Manager* option.
 
    The Hardware Manager window will open indicating “unconnected” status.
 
-4. Click on the **Open target** link, then **Auto Connect** from the dropdown menu.
+9. Click on the **Open target** link, then **Auto Connect** from the dropdown menu.
 
    You can also click on the **Open recent target** link if the board was already targeted before.
 
-5. The Hardware Manager status changes from Unconnected to the server name and the device is highlighted. Also notice that the Status indicates that it is not programmed.
+10. The Hardware Manager status changes from Unconnected to the server name and the device is highlighted. Also notice that the Status indicates that it is not programmed.
 
-6. Select the device and verify that the **ios.bit** is selected as the programming file in the General tab.
+11. Select the device and verify that the **ios.bit** is selected as the programming file in the General tab.
 
 #### Start a terminal emulator program such as TeraTerm or Mobaxterm. Select an appropriate COM port (you can find the correct COM number using the Control Panel). Set the COM port for 115200 baud rate communication. Program the FPGA and verify the functionality.
 
@@ -580,4 +624,4 @@ In this lab, you learned how to create an I/O Planning project and assign the pi
 
 
 ------------------------------------------------------
-<p align="center">Copyright&copy; 2022, Advanced Micro Devices, Inc.</p>
+<p align="center">Copyright&copy; 2023, Advanced Micro Devices, Inc.</p>

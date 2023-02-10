@@ -338,13 +338,13 @@ img {
     max-width: 1000px;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin: 10px 0 10px 0;
+    margin: 10px auto 10px auto;
 }
 
 p img,
 .emoji {
     display: inline;
-    margin: 0;
+    margin: 10px auto 10px auto;
     padding: 0;
     vertical-align: middle;
     text-align: center;
