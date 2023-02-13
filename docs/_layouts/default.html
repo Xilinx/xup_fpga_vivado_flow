@@ -24,8 +24,10 @@
         <span class="fa fa-bars"></span>
     </label>
         <input type="checkbox" id="btn">
-        <ul class="navbar-ul">            
-            <li class="listedpages "><a style="color:white; " href="index.html "><div align="center">Home</div></a></li>
+        <ul class="navbar-ul"> 
+        <li><label class="show ">Main Menu </label></li>           
+            <li class="listedpages "><a style="color:white; " href="index.html ">Home</a></li>
+            <li class="listedpages "><a style="color:white; " href="presentations.html ">Presentations</a> </li>
            
             <li><label for="btn-4" class="show ">FPGA Design Labs </label></li>
             {% for item in site.data.lab_sidebar.docs %}
@@ -39,9 +41,9 @@
             {{ content }}
         </section>
 
-        <!-- <footer>
+        <footer>
             <a class="buttons github" href="{{ site.github.repository_url }}"><b>View on GitHub</b></a>
-        </footer> -->
+        </footer>
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->

@@ -25,7 +25,10 @@ The design consists of a uart receiver receiving the input typed on a keyboard a
 equivalent of the typed character on the 8 LEDs. When a push button is pressed, the lower and upper
 nibbles are swapped. The block diagram is as shown in the following figure.
 
-![image-20220222143623444](images/lab2/Fig1.png)
+
+<div align = "center">
+<img src ="images/lab2/Fig1.png">
+</div>
 
 <p align = "center">
 <i>The Completed Design</i>
@@ -48,11 +51,10 @@ The absolute path for the source code should only contain ascii characters. Deep
 
 **{BOARD}** refers to target *Boolean* and *Z2* boards.
 
-## Steps
 
-### Step 1 Create a Vivado Project
+## Step 1 Create a Vivado Project
 
-#### Launch Vivado and create an empty project targeting the XC7S50CSGA324-1(for Boolean) or XC7Z020CLG400-1 (PYNQ-Z2) board, selecting Verilog as a target language. Use the provided Verilog source files, uart_led_pins_{board}.xdc and uart_led_timing.xdc files from the {SOURCES}\lab2 directory.
+### Launch Vivado and create an empty project targeting the XC7S50CSGA324-1(for Boolean) or XC7Z020CLG400-1 (PYNQ-Z2) board, selecting Verilog as a target language. Use the provided Verilog source files, uart_led_pins_{board}.xdc and uart_led_timing.xdc files from the {SOURCES}\lab2 directory.
 
 1. Open Vivado by selecting **Start > All Programs > Xilinx Design Tools > Vivado 2021.2**.
 
@@ -66,7 +68,10 @@ The absolute path for the source code should only contain ascii characters. Deep
 
 5. Select **RTL Project** option in the *Project Type* form, and click **Next**.
 
-   ![image-20220222143623444](images/lab2/create_new_prj.png)
+
+   <div align = "center">
+   <img src ="images/lab2/create_new_prj.png">
+   </div>
 
    <p align = "center">
    <i>Create a new project</i>
@@ -93,35 +98,38 @@ The absolute path for the source code should only contain ascii characters. Deep
 
 13. Click **Finish** to create the Vivado project.
 
----
+   ---
 
-(If you are using PYNQ-Z2)
+   (If you are using PYNQ-Z2)
 
-14. Copy the tcl script `ps_init.tcl` from **{SOURCES}/pynq-z2/lab2** to **{TUTORIAL}/lab2**.In the Tcl Shell window enter the following command to change to the lab directory and hit **Enter**.
+   1. Copy the tcl script `ps_init.tcl` from **{SOURCES}/pynq-z2/lab2** to **{TUTORIAL}/lab2**.In the Tcl Shell window enter the following command to change to the lab directory and hit **Enter**.
 
-```tcl
-cd {TUTORIAL}/lab2
-```
+      ```tcl
+      cd {TUTORIAL}/lab2
+      ```
 
-15. Generate the PS design by executing the provided Tcl script.
+   2. Generate the PS design by executing the provided Tcl script.
 
-```tcl
-source ps_init.tcl
-```
+      ```tcl
+      source ps_init.tcl
+      ```
 
-Please check if the path in the tcl script is correct or not.
+   Please check if the path in the tcl script is correct or not.
 
----
+   ---
 
 #### Analyze the design source files hierarchy (Taking Boolean as an example).
 
 1. In the Sources pane, expand the uart_led entry and notice hierarchy of the lower-level modules.
 
-![image-20220222143623444](images/lab2/Fig2.png)
+   <div align = "center">
+   <img src ="images/lab2/Fig2.png">
+   </div>
 
-<p align = "center">
-<i>Opening the source file (Boolean as example)</i>
-</p>
+   <p align = "center">
+   <i>Opening the source file (Boolean as example)</i>
+   </p>
+
 2. Double-click on the **uart_led** entry to view its content.
    Notice in the Verilog code, the BAUD_RATE and CLOCK_RATE parameters are defined to be
    115200 and 125M Hz(PYNQ-Z2) or 100 MHz(Boolean) respectively as shown in the design diagram. Also notice that the
@@ -130,57 +138,63 @@ Please check if the path in the tcl script is correct or not.
 3. Expand uart_rx_i0 instance to see its hierarchy.
    This module uses the baud rate generator and a finite state machine. The rxd_pin is sampled at a x16 the baud rate.
 
-#### Open the uart_led_timing.xdc source and analyze the content.
+   #### Open the uart_led_timing.xdc source and analyze the content.
 
-1. In the *Sources* pane, expand the *Constraints* folder and double-click the *uart_led_timing_{BOARD}.xdc*  entry to open the file in text mode.
+4. In the *Sources* pane, expand the *Constraints* folder and double-click the *uart_led_timing_{BOARD}.xdc*  entry to open the file in text mode.
 
-![image-20220222143623444](images/lab2/Fig3.png)
+   <div align = "center">
+   <img src ="images/lab2/Fig3.png">
+   </div>
+   <p align = "center">
+   <i>Timing constraints</i>
+   </p>
 
-<p align = "center">
-<i>Timing constraints</i>
-</p>
+   Line 3 creates the period constraint of 10 ns with a duty cycle of 50%. Line 6 creates a virtual clock of 12 ns. This clock can be viewed as the upstream device is generating its output with respect to its clock and outputs data with respect to it. The rxd_pin is constrained with respect to the design clock (lines 9, and 10) whereas the btn_pin is constrained with respect to the upstream clock (lines 12, 13). The led_pins are constrained with respect to the upstream clock as the downstream device may be using it.
 
-Line 3 creates the period constraint of 10 ns with a duty cycle of 50%. Line 6 creates a virtual clock of 12 ns. This clock can be viewed as the upstream device is generating its output with respect to its clock and outputs data with respect to it. The rxd_pin is constrained with respect to the design clock (lines 9, and 10) whereas the btn_pin is constrained with respect to the upstream clock (lines 12, 13). The led_pins are constrained with respect to the upstream clock as the downstream device may be using it.
+## Step 2 Elaborate the Design
 
-### Step 2 Elaborate the Design
-
-#### Elaborate and perform the RTL analysis on the source file.
+### Elaborate and perform the RTL analysis on the source file.
 
 1. Expand the Open Elaborated Design entry under the *RTL Analysis* tasks of the *Flow Navigator*
    pane and click on **Schematic**.
    The model (design) will be elaborated and a logical view of the design is displayed.
 
-![image-20220222143623444](images/lab2/Fig4.png)
+   <div align = "center">
+   <img src ="images/lab2/Fig4.png">
+   </div>
+   <p align = "center">
+   <i>A logic view of the design</i>
+   </p>
 
-<p align = "center">
-<i>A logic view of the design</i>
-</p>
+   A logic view of the design
 
-A logic view of the design
-
-You will see four components at the top-level, 2 instances of meta_harden, one instance of
-uart_rx, and one instance of led_ctl.
+   You will see four components at the top-level, 2 instances of meta_harden, one instance of
+   uart_rx, and one instance of led_ctl.
 
 2. To see where the uart_rx_i0 gets generated, right-click on the uart_rx_i0 instance and select Go
    To Source and see that line 84 in the source code is generating it.
 3. Double-click on the uart_rx_i0 instance in the schematic diagram to see the underlying
    components.
 
-![image-20220222143623444](images/lab2/Fig5.png)
-
-<p align = "center">
-<i>Lower level components of the uart_rx_i0 module</i>
-</p>
+   
+   <div align = "center">
+   <img src ="images/lab2/Fig5.png">
+   </div>
+   <p align = "center">
+   <i>Lower level components of the uart_rx_i0 module</i>
+   </p>
 
 4. Click on **Report Noise** under the *Open Elaborated Design* entry of the *RTL Analysis* tasks of the
    *Flow Navigator* pane.
 5. Click **OK** to generate the report named **ssn_1**.
 
-![image-20220222143623444](images/lab2/Fig6.png)
-
-<p align = "center">
-<i>Noise report</i>
-</p>
+   
+   <div align = "center">
+   <img src ="images/lab2/Fig6.png">
+   </div>
+   <p align = "center">
+   <i>Noise report</i>
+   </p>
 
 6. View the **ssn_1** report and observe the unplaced ports, Summary, and I/O Bank Details are
    highlighted in red because the pin assignments were not done. Note that only output pins are
@@ -196,15 +210,18 @@ uart_rx, and one instance of led_ctl.
    Notice that the sources are modified and the tools detect it, showing a warning status bar to reload
    the design.
 
-   ![image-20220222143623444](images/lab2/Fig7.png)
+   
+   <div align = "center">
+   <img src ="images/lab2/Fig7.png">
+   </div>
 
 9. Click on the **Reload** link. The constraints will be processed.
 10. Click on **Report** **Noise** and click **OK** to generate the report named **ssn_1**. Observe that this time
     it does not show any errors (no red).
 
-### Step 3 Synthesize the Design
+## Step 3 Synthesize the Design
 
-#### Synthesize the design with the Vivado synthesis tool and analyze the Project Summary output.
+### Synthesize the design with the Vivado synthesis tool and analyze the Project Summary output.
 
 1. Click on **Run** **Synthesis** under the *Synthesis* tasks of the *Flow* Navigator pane.
 
@@ -220,25 +237,26 @@ uart_rx, and one instance of led_ctl.
 
 4. Click on the **Table** tab in the *Project* Summary tab and fill out the following information.
 
-**Question 1**
+   **Question 1**
 
-Look through the table and find the number used of each of the following:
+   Look through the table and find the number used of each of the following:
 
-| Resources | Estimation |
-| --------- | ---------- |
-| FF        |            |
-| LUT       |            |
-| I/O       |            |
-| BUFG      |            |
+   | Resources | Estimation |
+   | --------- | ---------- |
+   | FF        |            |
+   | LUT       |            |
+   | I/O       |            |
+   | BUFG      |            |
 
 5. Click on **Schematic** under the *Open* *Synthesized* *Design* tasks of *Synthesis* tasks of the *Flow*
    *Navigator* pane to view the synthesized design in a schematic view.
 
-![image-20220222143623444](images/lab2/Fig8.png)
-
-<p align = "center">
-<i>Synthesized design’s schematic view</i>
-</p>
+   <div align = "center">
+   <img src ="images/lab2/Fig8.png">
+   </div>
+   <p align = "center">
+   <i>Synthesized design’s schematic view</i>
+   </p>
 
    Notice that IBUF and OBUF are automatically instantiated (added) to the design as the input and output are buffered. There are still four lower level modules instantiated.
 
@@ -253,17 +271,19 @@ Look through the table and find the number used of each of the following:
 
 9. Click on the (![image-20220222155502208](images/lab2/image-20220222155502208.png) ) in the schematic view to go back to its parent block.
 
-#### Analyze the timing report
+### Analyze the timing report
 
 1. Click on **Report Timing Summary** under the *Synthesized* *Design* tasks of the *Flow* *Navigator*
    pane.
 2. Click **OK** to generate the Timing_1 report.
 
-![image-20220222143623444](images/lab2/Fig9.png)
+   <div align = "center">
+   <img src ="images/lab2/Fig9.png">
+   </div>
 
-<p align = "center">
-<i>Timing report for the Boolean</i>
-</p>
+   <p align = "center">
+   <i>Timing report for the Boolean</i>
+   </p>
 
    Notice that the Design Timing Summary and Inter-Clock and Intra-Clock Paths entry in the left pane is highlighted in red indicating timing violations. In the right pane, the information is grouped in Setup, Hold, and Width columns.
 
@@ -271,55 +291,65 @@ Look through the table and find the number used of each of the following:
 
 3. Click on the WNS link and see the 8 failing paths.
 
-![image-20220222143623444](images/lab2/Fig10.png)
+   <div align = "center">
+   <img src ="images/lab2/Fig10.png">
+   </div>
 
-<p align = "center">
-<i>The 8 failing paths for the Boolean</i>
-</p>
+   <p align = "center">
+   <i>The 8 failing paths for the Boolean</i>
+   </p>
 
 4. Double-click on the **Path 23** to see how the path is made.
 
-   ![image-20220222143623444](images/lab2/Fig11.png)
+   <div align = "center">
+   <img src ="images/lab2/Fig11.png">
+   </div>
 
-<p align = "center">
-<i>Worst failing path for the Boolean</i>
-</p>
+   <p align = "center">
+   <i>Worst failing path for the Boolean</i>
+   </p>
 
    Note that this is an estimate only. The nets are specified as unplaced and have all been allocated default values (0.800 ns). No actual routing delays are considered.
 
-#### Generate the utilization and power reports.
+### Generate the utilization and power reports.
 
 1. Click **Report Utilization** under the *Synthesized Design*, and click **OK** to generate the utilization report.
 
-![image-20220222143623444](images/lab2/Fig12.png)
+   <div align = "center">
+   <img src ="images/lab2/Fig12.png">
+   </div>
 
-<p align = "center">
-<i>Utilization report for the Boolean</i>
-</p>
-**Question 2**
+   <p align = "center">
+   <i>Utilization report for the Boolean</i>
+   </p>
+   **Question 2**
 
-   Look through the table and find the number used of each of the following:
+      Look through the table and find the number used of each of the following:
 
-| Resources | Estimation |
-| --------- | ---------- |
-| FF        |            |
-| LUT       |            |
-| I/O       |            |
-| BUFG      |            |
+   | Resources | Estimation |
+   | --------- | ---------- |
+   | FF        |            |
+   | LUT       |            |
+   | I/O       |            |
+   | BUFG      |            |
 
 2. Select Slice LUTs entry in the left pane and see the utilization by lower-level instances. You can    expand the instances in the right pane to see the complete hierarchy utilization.
 
-![image-20220222143623444](images/lab2/Fig13.png)
-
-<p align = "center">
-<i>Utilization of lower-level modules for the Boolean</i>
-</p>
+   <div align = "center">
+   <img src ="images/lab2/Fig13.png">
+   </div>
+   <p align = "center">
+   <i>Utilization of lower-level modules for the Boolean</i>
+   </p>
 
 3. Click **Report Power** under the Synthesized Design, and click **OK** to generate the estimated power consumption report using default values.
    Note that this is just an estimate as no simulation run data was provided and no accurate activity
    rate, or environment information was entered.
 
-![image-20220222143623444](images/lab2/Fig14.png)
+
+   <div align = "center">
+   <img src ="images/lab2/Fig14.png">
+   </div>
 
 **Question 3**
 From the power report, find the % power consumption used by each of the following:
@@ -333,40 +363,50 @@ From the power report, find the % power consumption used by each of the followin
 
 You can move the mouse on the boxes which do not show the percentage to see the consumption.
 
-#### Write the checkpoint in order to analyze the results without going through the actual synthesis process.
+### Write the checkpoint in order to analyze the results without going through the actual synthesis process.
 
 1. Select **File > Checkpoint > Write** to save the processed design so it can be opened later for    further analysis.
 2. A dialog box will appear showing the default name of the file in the current project directory.
 
-![image-20220222143623444](images/lab2/Fig15.png)
-
-<p align = "center">
-<i>Wiring Checkpoint</i>
-</p>
+   
+   <div align = "center">
+   <img src ="images/lab2/Fig15.png">
+   </div>
+   <p align = "center">
+   <i>Wiring Checkpoint</i>
+   </p>
 
 3. Click **OK**
 
-#### Change the synthesis settings to flatten the design. Re-synthesize the design and analyze the results.
+### Change the synthesis settings to flatten the design. Re-synthesize the design and analyze the results.
 
 1. Click on the **Settings** under the *Project Manager*, and select **Synthesis**.
 2. Click on the **flatten_hierarchy** drop-down button and select **full** to flatten the design.
 
-![image-20220222143623444](images/lab2/Fig16.png)
 
-<p align = "center">
-<i>Selecting flatten hierarchy option</i>
-</p>
+   <div align = "center">
+   <img src ="images/lab2/Fig16.png">
+   </div>
+   <div align = "center">
+   <img src ="images/lab2/Fig15.png">
+   </div>
+   <p align = "center">
+   <i>Selecting flatten hierarchy option</i>
+   </p>
 
 
 3. Click **OK**.
 
 4. A Create New Run dialog box will appear asking you whether you want to create a new run since  the settings have been changed.
 
-   ![image-20220222143623444](images/lab2/Fig17.png)
+ 
+   <div align = "center">
+   <img src ="images/lab2/Fig17.png">
+   </div>
 
-<p align = "center">
-<i>Create New Run dialog box</i>
-</p>
+   <p align = "center">
+   <i>Create New Run dialog box</i>
+   </p>
 
 
 5. Click **Yes**
@@ -380,17 +420,17 @@ You can move the mouse on the boxes which do not show the percentage to see the 
 9. Click on **Schematic** under the *Open Synthesized Design* tasks of *Synthesis* tasks of the *Flow Navigator* pane to view the synthesized design in a schematic view.
    Notice that the design is completely flattened.
 
-![image-20220222143623444](images/lab2/Fig18.png)
-
-<p align = "center">
-<i>Flattened design</i>
-</p>
+   <p align="center">
+   <img src ="images/lab2/Fig18.png">
+   <i>Flattened design</i>
+   </p>
+   
 
 
 10. Click on **Report Utilization** and observe that the hierarchical utilization is no longer available.
     Also note that the number of Slice Registers is 37.
 
-#### Write the checkpoint in order to analyze the results without going through the actual synthesis process.
+### Write the checkpoint in order to analyze the results without going through the actual synthesis process.
 
 1. Select **File > Checkpoint > Write** to save the processed design so it can be opened later for further analysis.
 
@@ -398,9 +438,9 @@ You can move the mouse on the boxes which do not show the percentage to see the 
 
 3. Click **OK**.
 
-### Step 4 Read the Checkpoints
+## Step 4 Read the Checkpoints
 
-#### Read the previously saved checkpoint (checkpoint_1) in order to analyze the results without going through the actual synthesis process.
+### Read the previously saved checkpoint (checkpoint_1) in order to analyze the results without going through the actual synthesis process.
 
 1. Launch Vivado and select **File > Checkpoint > Open ** at the *Getting Started* Screen.
 
@@ -427,16 +467,14 @@ You can move the mouse on the boxes which do not show the percentage to see the 
 
    This will invoke second Vivado GUI.
 
-0. If the schematic isn’t open by default, in the netlist tab, select the top-level instance, *uart_led*, right-click and select Schematic.
+10. If the schematic isn’t open by default, in the netlist tab, select the top-level instance, *uart_led*, right-click and select Schematic.  You will see the flattened design.
 
-   You will see the flattened design.
+11. You can generate the desired reports on this checkpoint as you wish.
 
-0. You can generate the desired reports on this checkpoint as you wish.
-
-0. Close the Vivado program by selecting **File > Exit** and click **OK**.
+12. Close the Vivado program by selecting **File > Exit** and click **OK**.
 
 ## Conclusion
 In this lab you applied the timing constraints and synthesized the design. You viewed various post-synthesis reports. You wrote checkpoints and read it back to perform the analysis you were doing during the design flow. You saw the effect of changing synthesis settings.
 
 ------------------------------------------------------
-<p align="center">Copyright&copy; 2022, Advanced Micro Devices, Inc.</p>
+<p align="center">Copyright&copy; 2023, Advanced Micro Devices, Inc.</p>

@@ -386,12 +386,12 @@ The absolute path for the source code should only contain ascii characters. Deep
 
    In the Hardware window in Vivado notice that there are two debug cores, hw\_ila\_1 and hw\_ila\_2.
 
-<p align="center">
-<img src ="./images/lab6/Fig19.png">
-</p>
-<p align = "center">
-<i>Debug probes</i>
-</p>
+   <p align="center">
+   <img src ="./images/lab6/Fig19.png">
+   </p>
+   <p align = "center">
+   <i>Debug probes</i>
+   </p>
 
 
    The hardware session status window also opens showing that the FPGA is programmed having two ILA cores with the idle state.
@@ -460,12 +460,12 @@ The absolute path for the source code should only contain ascii characters. Deep
 
 7. Select the *hw\_ila\_data\_1.wcfg* window and see the waveform.  Notice that the *rx\_data\_rdy\_out* goes from 0 to 1 at 512th sample.
 
-<p align="center">
-<img src ="./images/lab6/Fig27.png">
-</p>
-<p align = "center">
-<i>Zoomed waveform view</i>
-</p>
+   <p align="center">
+   <img src ="./images/lab6/Fig27.png">
+   </p>
+   <p align = "center">
+   <i>Zoomed waveform view</i>
+   </p>
 
 
 8. Add the *hw\_ila\_2* probes to the trigger window of the *hw\_ila\_2* and change the trigger condtion for *rx\_data[7:0]*’s Radix from Hexadecimal to Binary. Change *XXXX\_XXXX* to **0101\_0101** (for the ASCII equivalent of U).
@@ -483,12 +483,12 @@ The absolute path for the source code should only contain ascii characters. Deep
 
 11. Select the corresponding waveform window and verify that it shows 55 after the trigger.
 
-    <p align="center">
-    <img src ="./images/lab6/Fig29.png">
-    </p>
-    <p align = "center">
-    <i>Second ila core triggered</i>
-    </p>
+   <p align="center">
+   <img src ="./images/lab6/Fig29.png">
+   </p>
+   <p align = "center">
+   <i>Second ila core triggered</i>
+   </p>
 
 12. When satisfied, Select **File > Close Hardware Manager**. Click **OK** to close it.
 
@@ -502,4 +502,4 @@ You used ILA core from the IP Catalog and Mark Debug feature of Vivado to debug 
 
 
 ------------------------------------------------------
-<p align="center">Copyright&copy; 2022, Advanced Micro Devices, Inc.</p>
+<p align="center">Copyright&copy; 2023, Advanced Micro Devices, Inc.</p>

@@ -149,29 +149,28 @@ In this design we will use board’s USB-UART which is controlled by the Zynq’
 
 3. Select *Add or Create Design Sources* and click **Next**.
 
-5. In the *File Type* field, select **All Files**, and then select **char\_fifo.xcix** file.
+4. In the *File Type* field, select **All Files**, and then select **char\_fifo.xcix** file.
 
-6. Click on the **Blue Plus** button, then the **Add Files…** button and browse to **{SOURCES}\lab4**
+5. Click on the **Blue Plus** button, then the **Add Files…** button and browse to **{SOURCES}\lab4**
 
-7. In the *File Type* field, select **All Files**, and then select **clogb2.txt** file.
+6. In the *File Type* field, select **All Files**, and then select **clogb2.txt** file.
 
-8. Click **OK** and then **Finish**.
+7. Click **OK** and then **Finish**.
 
-9. In the *Sources* pane, expand *Design Sources* and *wave\_gen\_top* and wave\_gen if necessary, and double-click on the **clk\_gen\_i0** entry.
+8. In the *Sources* pane, expand *Design Sources* and *wave\_gen\_top* and wave\_gen if necessary, and double-click on the **clk\_gen\_i0** entry.
 
    Scroll down the file and notice that around line 79 there is an instruction to instantiate a clock core.
 
----
+   
+   **For PYNQ-Z2**
 
-**For PYNQ-Z2**
+9. In the Tcl Shell window enter the following command to change to the lab directory and hit **Enter**.
 
-10. In the Tcl Shell window enter the following command to change to the lab directory and hit **Enter**.
+   ```tcl
+   cd {SOURCES}/lab4
+   ```
 
-    ```tcl
-    cd {SOURCES}/lab4
-    ```
-
-11. Generate the PS design by executing the provided Tcl script.
+10. Generate the PS design by executing the provided Tcl script.
 
     ```tcl
     source ps_init.tcl
@@ -179,7 +178,7 @@ In this design we will use board’s USB-UART which is controlled by the Zynq’
 
     This script will create a block design called *system*, instantiate ZYNQ PS, enable two GPIO channels (GPIO14 and GPIO15) and two EMIO channels. It will create **system.bd** that is instantiated under `system\_wrapper.v wrapper` file. You can check the contents of the tcl file to confirm the commands that are being run.
 
----
+
 
 
 ### Step 2 Generate and Instantiate Clock Generator Module
@@ -228,12 +227,12 @@ In this design we will use board’s USB-UART which is controlled by the Zynq’
 
 7. Click **OK** to see the *Generate Output Products* form.
 
-<p align="center">
-<img src ="./images/lab4/Fig8.png">
-</p>
-<p align = "center">
-<i>Generate output products form</i>
-</p>
+   <p align="center">
+   <img src ="./images/lab4/Fig8.png">
+   </p>
+   <p align = "center">
+   <i>Generate output products form</i>
+   </p>
 
 8. Click on **Generate** to generate the output products including the instantiation template. Click **OK** to proceed.
 
@@ -440,11 +439,11 @@ will be added after boot image has been made
 
 7. Toggle line comments the instantiation of the *char\_fifo* from the file around line 336.
 
-<p align="center">
-<img src ="./images/lab4/Fig18.png">
-</p>
-<p align = "center">
-</p>
+   <p align="center">
+   <img src ="./images/lab4/Fig18.png">
+   </p>
+   <p align = "center">
+   </p>
 
 
 8. Select **File > Save File**.
@@ -455,12 +454,12 @@ will be added after boot image has been made
 
 2. Enter **char\_fifo** as the block design name.
 
-<p align="center">
-<img src ="./images/lab4/Fig19.png">
-</p>
-<p align = "center">
-<i>Naming the new block design</i>
-</p>
+   <p align="center">
+   <img src ="./images/lab4/Fig19.png">
+   </p>
+   <p align = "center">
+   <i>Naming the new block design</i>
+   </p>
 
 3. Click **OK**.
 
@@ -472,12 +471,12 @@ will be added after boot image has been made
 
 5. Type **FIFO** in the search box at the top of the IP Integrator Catalog to see FIFO related available IPs.
 
-<p align="center">
-<img src ="./images/lab4/Fig20.png">
-</p>
-<p align = "center">
-<i>Searching for an IP in the IP Catalog</i>
-</p>
+   <p align="center">
+   <img src ="./images/lab4/Fig20.png">
+   </p>
+   <p align = "center">
+   <i>Searching for an IP in the IP Catalog</i>
+   </p>
 
 6. Double-click **FIFO Generator**.
 
@@ -519,12 +518,12 @@ will be added after boot image has been made
 
 8. Deselect the *Enable Safety Circuit* option.
 
-<p align="center">
-<img src ="./images/lab4/Fig23.png">
-</p>
-<p align = "center">
-<i>Configuring Port Width and Read Mode</i>
-</p>
+   <p align="center">
+   <img src ="./images/lab4/Fig23.png">
+   </p>
+   <p align = "center">
+   <i>Configuring Port Width and Read Mode</i>
+   </p>
 
 
 9. Browse through the settings of the *Status Flags* and *Data Counts* tabs.
@@ -645,12 +644,12 @@ will be added after boot image has been made
 
 The *char\_fifo\_wrapper.v* instantiation template is opened in the text editor in the Vivado IDE.
 
-<p align="center">
-<img src ="./images/lab4/Fig32.png">
-</p>
-<p align = "center">
-<i>Part of the Instantiation Template</i>
-</p>
+   <p align="center">
+   <img src ="./images/lab4/Fig32.png">
+   </p>
+   <p align = "center">
+   <i>Part of the Instantiation Template</i>
+   </p>
 
 
 3. Copy lines 42 through line 51, and paste them at or around line 334 in the *wave\_gen.v* file.
@@ -671,14 +670,14 @@ The *char\_fifo\_wrapper.v* instantiation template is opened in the text editor 
 
 5. Open the hardware manager and program the FPGA.
 
----
+   
 
-**Extra Steps for PYNQ-Z2**
+   **Extra Steps for PYNQ-Z2**
 
-Will be delivered after completing the boot image of PYNQ-Z2.
+   Will be delivered after completing the boot image of PYNQ-Z2.
 
 
----
+   
 
 6. verify the functionality of the design in the hardware.
 7. When done, close the **Vivado** program by selecting **File > Exit** and click **OK**.
@@ -688,4 +687,4 @@ Will be delivered after completing the boot image of PYNQ-Z2.
 In this lab, you learned how to add an existing IP during the project creation.  You also learned how to use IP Catalog and generate a core.  You then instantiated the core in the design, implemented the design, and verified the design in hardware.  You also used the IP Integrator capability of the tool to generate a FIFO and then use it in the HDL design.
 
 ------------------------------------------------------
-<p align="center">Copyright&copy; 2022, Advanced Micro Devices, Inc.</p>
+<p align="center">Copyright&copy; 2023, Advanced Micro Devices, Inc.</p>

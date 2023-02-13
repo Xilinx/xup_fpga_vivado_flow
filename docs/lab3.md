@@ -38,9 +38,9 @@ flowchart
 
 ## Steps
 
-### Step 1 Open a Vivado Project using IDE
+## Step 1 Open a Vivado Project using IDE
 
-#### Launch Vivado and open the lab2 project. Save the project as lab3 in the {TUTORIAL} directory making sure that the create subdirectory option is selected. Set the flatten_hierarchy setting to rebuilt. Create new synthesis run naming it as synth_2.
+### Setup
 
 1. Start the Vivado, if necessary, and open either the *lab2* project (lab2.xpr) you created in the previous lab or the *lab2* project in the **labsolution** directory using the **Open Project** link in the *Getting Started* page.
 
@@ -51,7 +51,7 @@ flowchart
 4. Make sure that the *flatten_hierarchy* is set to **rebuilt**, which allows the design hierarchy to be preserved for synthesis, and then rebuilt which is more useful for design analysis because many logical references will be maintained.
 
 
-![Fig1](images/lab3/Fig1.png)
+    ![Fig1](images/lab3/Fig1.PNG)
 
 5. Click **OK**.
 
@@ -71,7 +71,8 @@ flowchart
     pane.
 
 4. Leave all the settings unchanged, and click **OK** to generate a default timing report, *timing_1*.
-![Fig1](images/lab3/Fig2.png)
+ 
+    ![Fig2](images/lab3/Fig2.PNG)
 
 5. Click on the link beside the **Worst Negative Slack** (WNS) and see the 8 failing paths.
 
@@ -82,36 +83,46 @@ flowchart
     The schematic for the output data path will be displayed.
 
 
-![Fig1](images/lab3/Fig3.png)
+    <div align= "center">
+    <img  src="images/lab3/Fig3.png">
+    </div>
 
-<p align = "center">
-<i>The output data path(Boolean)</i>
-</p>
+    <p align = "center">
+    <i>The output data path(Boolean)</i>
+    </p>
 
-![image-20220406155214280](images/lab3/Fig3_z2.png)
-
-<p align = "center">
-<i>The output data path(PYNQ-Z2)</i>
-</p>
+    <div align= "center">
+    <img  src="images/lab3/Fig3_z2.png">
+    </div>
+    <p align = "center">
+    <i>The output data path(PYNQ-Z2)</i>
+    </p>
 
 8. In order to see how the Source Clock Path is made up in schematic form, double-click on left end  of the C pin of the FDRE in the schematic.
     This will show the net between the BUFG and C port of the FDRE.
 
 9. Similarly, double-click on the left end of the BUFG to see the path between IBUF and BUFG.
 
-![Fig1](images/lab3/Fig4.png)
 
+<div align = "center">
+<img src ="images/lab3/Fig4.png">
+</div>
 
 <p align = "center">
 <i>Source to clock port of the FDRE</i>
 </p>
-![Fig1](images/lab3/Fig5.png)
+
+<div align = "center">
+<img src ="images/lab3/Fig5.png">
+</div>
 
 <p align = "center">
 <i>The schematic view of the source clock path(Boolean)</i>
 </p>
 
-![image-20220406155310848](images/lab3/Fig5_z2.png)
+<div align = "center">
+<img src ="images/lab3/Fig5_z2.png">
+</div>
 
 <p align = "center">
 <i>The schematic view of the source clock path(PYNQ-Z2)</i>
@@ -119,7 +130,10 @@ flowchart
 
   This corresponds to the Source Clock Path in the timing report.
 
-![Fig1](images/lab3/Fig6.png)
+
+<div align = "center">
+<img src ="images/lab3/Fig6.png">
+</div>
 
 <p align = "center">
 <i>The source clock path for the Boolean</i>
@@ -128,8 +142,10 @@ flowchart
 
 Since the virtual clock is slower (12 ns) than the clk_pin period (10 ns for Boolean or 8 ns for PYNQ-Z2), the data path delay includes the clock period of the clk_pin clock source.
 
-![Fig1](images/lab3/Fig7.png)
 
+<div align = "center">
+<img src ="images/lab3/Fig7.png">
+</div>
 
 <p align = "center">
 <i>Worst failing path for the Boolean</i>
@@ -142,26 +158,33 @@ Since the virtual clock is slower (12 ns) than the clk_pin period (10 ns for Boo
    The *Timing Constraints* GUI will appear, showing the design has two created clocks, four inputs, and one output constraints. It also shows the constraints in the text form in the *All Constraints*
    section.
 
-   ![Fig1](images/lab3/Fig8.png)
+   <div align = "center">
+   <img src ="images/lab3/Fig8.png">
+   </div>
 
-<p align = "center">
-<i>Timing Constraints showing 12 ns Virtual Clock period defined (Boolean)</i>
-</p>
+   <p align = "center">
+   <i>Timing Constraints showing 12 ns Virtual Clock period defined (Boolean)</i>
+   </p>
+
 2. Click in the Period cell of the virtual_clock and change the period from 12 to 10(Boolean) or to 8(PYNQ-z2)
 
 3. Click **Apply**.
     Note that since the timing constraint has changed, a warning message in the console pane is displayed to rerun the report.
 
-  ![Fig1](images/lab3/Figa.png)
+   <div align = "center">
+   <img src ="images/lab3/figa.png">
+   </div>
 
 4. Click on Rerun.
     Notice that setup timing violations are gone. However, there are still 2 failing paths for the Hold.
 
-![Fig1](images/lab3/Fig9.png)
+    <div align = "center">
+    <img src ="images/lab3/Fig9.png">
+    </div>
 
- <p align = "center">
-<i> Setup timing met</i>
-</p>
+    <p align = "center">
+    <i> Setup timing met</i>
+    </p>
 
 5. Click on the *WHS* link to see the paths.
 
@@ -196,11 +219,13 @@ When the implementation is completed, a dialog box will appear with three option
 
 3. Select Slice LUTs to view how much and which module consumes the resource.
 
-![Fig1](images/lab3/Fig10.png)
+    <div align = "center">
+    <img src ="images/lab3/Fig10.png">
+    </div>
 
-<p align = "center">
-<i>Resource utilization for the Boolean</i>
-</p>
+    <p align = "center">
+    <i>Resource utilization for the Boolean</i>
+    </p>
 
 
 #### Generate a timing summary report.
@@ -209,27 +234,28 @@ When the implementation is completed, a dialog box will appear with three option
 The Report Timing Summary dialog box opens.
 2. Leave all the settings unchanged and click **OK** to generate the report.
 
-![Fig1](images/lab3/Fig11.png)
+   <div align = "center">
+   <img src ="images/lab3/Fig11.png">
+   </div>
 
-<p align = "center">
-<i>The timing summary report showing timing violations</i>
-</p>
+   <p align = "center">
+   <i>The timing summary report showing timing violations</i>
+   </p>
 
 3. Click on the *WNS* link to see a detailed report to determine the failing path entries.
 
 4. Double-click on the first failing path to see why it is failing.
 
-  ![Fig1](images/lab3/Fig12.png)
+   <div align = "center">
+   <img src ="images/lab3/Fig12.png">
+   </div>
 
-<p align = "center">
-<i>First failing path delays for the Boolean</i>
-</p>
+   <p align = "center">
+   <i>The timing summary report showing timing violations</i>
+   </p>
 
-
-Compared to delays from the synthesis report, the net delays are actual delays (rather than an estimated figure). The data path delay is longer than the destination clock path delay giving a negative slack (violation). The data path delay is 11.534 ns for the Boolean, the destination clock path is 9.975 ns and the negative slack is -1.559 ns (in this case).
-At this point we can ignore this violation as the LED display change by a few nanoseconds won’t be observable by human eyes. We can also change the output delay by approximately -2 ns and make the timings meet.
-
-
+   Compared to delays from the synthesis report, the net delays are actual delays (rather than an estimated figure). The data path delay is longer than the destination clock path delay giving a negative slack (violation). The data path delay is 11.534 ns for the Boolean, the destination clock path is 9.975 ns and the negative slack is -1.559 ns (in this case).
+   At this point we can ignore this violation as the LED display change by a few nanoseconds won’t be observable by human eyes. We can also change the output delay by approximately -2 ns and make the timings meet.
 5. Select **Implemented Design** > **Edit Timing Constraints** the *Flow Navigator* pane.
 
 6. Select the *Set Output Delay entry* in the left pane, select all the output ports and change the Delay Value to -2.000 ns.
@@ -254,7 +280,9 @@ At this point we can ignore this violation as the LED display change by a few na
 13. Select *clk_pin* entry and observe the selected nets in the Device view.
     The clock nets are spread across multiple clock regions.
 
-![Fig1](images/lab3/Fig13.png)
+<div align = "center">
+<img src ="images/lab3/Fig13.png">
+</div>
 
 <p align = "center">
 <i>Clock nets for the Boolean</i>
@@ -267,11 +295,13 @@ At this point we can ignore this violation as the LED display change by a few na
 
 1. In the *Flow Navigator*, under Program and Debug, click **Generate Bitstream.**
 
-![Fig1](images/lab3/Fig14.png)
+   <div align = "center">
+   <img src ="images/lab3/Fig14.png">
+   </div>
 
-<p align = "center">
-<i>Generating the bitstream</i>
-</p>
+   <p align = "center">
+   <i>Generating the bitstream</i>
+   </p>
 
 
 2. Click **Save** to save the constraints since the timing constraints had been changed, click **OK**, and then **Yes** to reset the runs and re-run all the processes.
@@ -281,7 +311,6 @@ The write_bitstream command will be executed (you can verify it by looking in th
 
 ### Step 4 Verify the Functionality
 
----
 
 **For Boolean:**
 
@@ -292,13 +321,13 @@ The write_bitstream command will be executed (you can verify it by looking in th
     The Hardware Manager window will open indicating “unconnected” status.
 3. Click on the **Open target** link, then **Auto Connect** from the dropdown menu.
 
-  ![Fig1](images/lab3/Fig15.png)
+   <div align = "center">
+   <img src ="images/lab3/Fig15.png">
+   </div>
 
-<p align = "center">
-<i>Opening new hardware target</i>
-</p>
-
-
+   <p align = "center">
+   <i>Opening new hardware target</i>
+   </p>
 4. The *Hardware Manager Session* status changes from **Unconnected** to the server name and the device is highlighted. Also notice that the *Status* indicates that it is not programmed.
 5. Select the device in the Hardware Device Properties, and verify that the **uart_led.bit** is selected as the programming file in the General tab.
 
@@ -311,17 +340,17 @@ The write_bitstream command will be executed (you can verify it by looking in th
 3. Select the *Open Hardware Manager* option and click **OK**.
    The Hardware Manager window will open indicating “unconnected” status.
 
-  ![Fig1](images/lab3/Fig15.png)
+   <div align = "center">
+   <img src ="images/lab3/Fig15.png">
+   </div>
 
-<p align = "center">
-<i>Opening new hardware target</i>
-</p>
-
-
+   <p align = "center">
+   <i>Opening new hardware target</i>
+   </p>
+   
 4. The *Hardware Manager Session* status changes from **Unconnected** to the server name and the device is highlighted. The status may indicate that the device is programmed, **ignore the status**.
 5. Select the device in the *Hardware Device Properties*, and verify that the **uart_led.bit** is selected as the programming file in the General tab.
 
----
 
 ### Start a terminal emulator program such as Mobaxterm or TeraTerm . Select an appropriate COM port (you can find the correct COM number using the Control Panel). Set the COM port for 115200 baud rate communication. Program the FPGA and verify the functionality.
 
@@ -351,4 +380,4 @@ The write_bitstream command will be executed (you can verify it by looking in th
 In this lab, you learned about many of the reports available to designers in the Vivado IDE. You had the opportunity to learn basic design analysis tools including the Schematic viewer, delay path properties and reports viewer, Device viewer, and selecting primitive parents. You also learned about the basic timing report options that are at your disposal. You verified the functionality in hardware by typing characters on the host machine and seeing the LED pattern changes.
 
 ------------------------------------------------------
-<p align="center">Copyright&copy; 2022, Advanced Micro Devices, Inc.</p>
+<p align="center">Copyright&copy; 2023, Advanced Micro Devices, Inc.</p>
